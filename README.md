@@ -4,7 +4,7 @@ Enter the exciting world of Pokemon Battle, where trainers clash in epic battles
 
 ## Play the Game
 
-[Play Now](https://your-username.github.io/pokemon-battle/) 🕹️
+[Play Now]( https://aryan0-1maurya.github.io/pokemon-battle/) 🕹️
 
 ## About the Game
 
