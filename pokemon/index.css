@@ -1,0 +1,249 @@
+/* Created by Aryan maurya*/
+
+
+
+
+*,
+*:before,
+*:after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+::-webkit-scrollbar {
+    display: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background: #444444;
+    font-family: sans-serif;
+}
+
+.active {
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.active-preloader {
+    visibility: hidden !important;
+    opacity: 0 !important;
+}
+/* 
+
+     ============================================================
+      
+          _____________   ^^^^^^^^^^    ____________________
+
+[   By ~Aryan Maurya Mr.perfect https://amsrportfolio.netlify.app  ]
+
+          _____________   ^^^^^^^^^^    ____________________
+
+     ============================================================
+
+*/
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #23305e;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    visibility: visible;
+    opacity: 1;
+    transition: 400ms;
+    z-index: 1;
+}
+
+#animator {
+    position: relative;
+    top: 10px;
+    left: 0%;
+    transform-style: preserved-3d;;
+}
+
+.circl {
+    position: relative;
+    bottom: 0;
+    width: 15px;
+    height: 15px;
+    margin: 10px;
+    border-radius: 100%;
+    background: #fff;
+    display: inline-block;
+    transition: 500ms;
+    transform: rotateY(0deg);
+    transform-style: preserved-3d;;
+    transform: scale(1);
+    animation: scal 0.57s infinite ease-in-out alternate;
+
+}
+
+.circl:nth-child(2) {
+    animation-delay: 0.20s;
+}
+
+.circl:nth-child(3) {
+    animation-delay: 0.40s;
+}
+
+.circl:nth-child(4) {
+    animation-delay: 0.60s;
+}
+
+.circl:nth-child(5) {
+    animation-delay: 0.80s;
+}
+
+@keyframes scal {
+    to {
+        transform: rotateY(90deg);
+        transform: scale(1.5);
+        bottom: 50px;
+        opacity: 0.1;
+        
+    }
+}
+
+.creater {
+    margin: 40px auto;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 10pt;
+}
+
+.container {
+    margin: 0;
+    width: 100%;
+}
+
+.content {
+    margin: 10px auto;
+    padding: 10px;
+    width: 95%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-auto-rows: auto;
+    gap: 20px;
+}
+
+.card {
+    margin: 0;
+    padding: 10px;
+    width: 100%;
+    height: 300px;
+    color: #ffffff;
+    background: #222222;
+    font-size: 12px;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.5);
+}
+
+.card img {
+    margin: 10px auto;
+    width: 100%;
+    height: 50%;
+}
+
+.card h2 {
+    text-transform: capitalize;
+}
+
+.info {
+    margin: 20px auto;
+    padding: 10px;
+    width: 95%;
+    display: inline-block;
+    align-items: center;
+    justify-content: center;
+}
+
+.info p {
+    margin-bottom: 10px;
+}
+
+.info > p {
+    text-transform: capitalize;
+}
+
+.loader {
+    width: 100%;
+    height: 120px;
+    background: #444444;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: 400ms;
+}
+
+.spiner {
+    width: 50px;
+    height: 50px;
+    border: 5px solid #ffffff;
+    border-top: 5px solid transparent;
+    border-right: 5px solid #ffffff;
+    border-left: 5px solid #ffffff;
+    border-bottom: 5px solid #ffffff;
+    border-radius: 100%;
+    animation: loading 0.5s infinite linear;
+}
+
+@keyframes loading {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.topbtn {
+    position: fixed;
+    right: 10px;
+    bottom: 10px;
+    width: 50px;
+    height: 50px;
+    background: #ffffff;
+    color: #000000;
+    opacity: 1;
+    visibility: visible;
+    font-size: 30px;
+    border-radius: 2px;
+    box-shadow: 0 0 20px 0 #00000075;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 25px;
+    transition: 250ms ease-in-out;
+}
+
+.topbtnhide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+
+
+/* 
+
+     ============================================================
+      
+          _____________   ^^^^^^^^^^    ____________________
+
+[   By ~Aryan Maurya Mr.perfect https://amsrportfolio.netlify.app  ]
+
+          _____________   ^^^^^^^^^^    ____________________
+
+     ============================================================
+
+*/

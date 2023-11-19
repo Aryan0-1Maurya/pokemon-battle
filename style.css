@@ -1,0 +1,427 @@
+/* Created by Aryan */
+/* 
+
+     ============================================================
+      
+          _____________   ^^^^^^^^^^    ____________________
+
+[   By ~Aryan Maurya Mr.perfect https://amsrportfolio.netlify.app  ]
+
+          _____________   ^^^^^^^^^^    ____________________
+
+     ============================================================
+
+*/
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-size: 14pt;
+  background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/2fb2821a-1406-4a1d-9b04-6668f278e944/d841b5t-d14186ca-887a-4f10-b4ca-b16d5aaff49a.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzJmYjI4MjFhLTE0MDYtNGExZC05YjA0LTY2NjhmMjc4ZTk0NFwvZDg0MWI1dC1kMTQxODZjYS04ODdhLTRmMTAtYjRjYS1iMTZkNWFhZmY0OWEuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.5Pv6KPt53igISARqXxlqkRR4qtwKEB3LhHLyc1OQ9Wo");
+  background-color: lightgreen;
+  background-size: 100vw 100vh;
+  font-family: 'Open Sans', sans-serif;
+}
+
+/* enemy pokemon css */
+
+#myGame {
+  display: none;
+}
+
+#loader {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100vw;
+  background: #eee;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader-ball {
+  width: 200px;
+  animation: rotateball linear 0.5s infinite;
+}
+
+@keyframes rotateball {
+  from {
+    transform: rotateZ(360deg);
+  }
+
+  to {
+    transform: rotateZ(0deg);
+  }
+}
+
+#enemyPokemon {
+  position: fixed;
+  top: 0px;
+  right: 0px;
+}
+
+/* 
+
+     ============================================================
+      
+          _____________   ^^^^^^^^^^    ____________________
+
+[   By ~Aryan Maurya Mr.perfect https://amsrportfolio.netlify.app  ]
+
+          _____________   ^^^^^^^^^^    ____________________
+
+     ============================================================
+
+*/
+#enemyPokeLife {
+  width: 100px;
+  height: 15px;
+  border: 2px solid #eee;
+  background: #eee;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+#enemyPokeLifeNum {
+  color: #000;
+}
+
+#enemyPokeImg {
+  height: 150px;
+  width: 150px;
+  background-image: url("https://cdn.discordapp.com/attachments/863680490635657229/909328417705574420/images-removebg-preview.png");
+  background-size: 150px 150px;
+  z-index: 100;
+  position: relative;
+}
+
+#enemy-ground {
+  width: 150px;
+  height: 80px;
+  background: #3ED291;
+  border-radius: 100px;
+  transform: rotateX(60deg);
+  margin-top: -50px;
+  z-index: 0;
+  position: relative;
+}
+
+.enemy-poke-level {
+  position: fixed;
+  display: inline-block;
+}
+
+/*my pokemon css */
+#myPokemon {
+  position: fixed;
+  bottom: 200px;
+  left: 10px;
+}
+
+#myPokeLife {
+  width: 100px;
+  height: 15px;
+  border: 2px solid #eee;
+  background-color: #eee;
+  border-radius: 5px;
+  display: inline-block;
+
+}
+
+#myPokeInfo {}
+
+#myPokeLifeNum {
+  color: #000;
+}
+
+#myPokeImg {
+  height: 150px;
+  width: 150px;
+  background-image: url("https://cdn2.bulbagarden.net/upload/3/31/Spr_b_6x_487O.png");
+  background-size: 150px 150px;
+  position: relative;
+  z-index: 100;
+}
+
+#myPokeName {
+  color: #000;
+}
+
+#my-ground {
+  width: 150px;
+  height: 80px;
+  background: #AC5423;
+  border-radius: 100px;
+  transform: rotateX(60deg);
+  margin-top: -50px;
+  z-index: 0;
+  position: relative;
+}
+
+/*contols*/
+#controls {
+  background-color: #FFFFFF3D;
+  padding: 10px;
+  width: 100%;
+  height: 30%;
+  max-height: 200px;
+  position: fixed;
+  bottom: 0px;
+}
+
+#paragraph {
+  display: flex;
+  align-items: center;
+}
+
+/* 
+
+     ============================================================
+      
+          _____________   ^^^^^^^^^^    ____________________
+
+[   By ~Aryan Maurya Mr.perfect https://amsrportfolio.netlify.app  ]
+
+          _____________   ^^^^^^^^^^    ____________________
+
+     ============================================================
+
+*/
+#buttons {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-gap: 10px;
+  padding: 15px;
+}
+
+.buttons {
+  padding: 10px;
+  border-radius: 10px;
+  width: 100%;
+  height: 70px;
+  background: #fff;
+  color: #000;
+  border: 5px solid #eee;
+}
+
+#pokeInfo {
+  padding: 5px;
+  background-color: #fff;
+  border: 2px solid #eee;
+  border-radius: 10px 0px 10px 0px;
+}
+
+.my-pokeInfo {
+  margin-left: 150px;
+  margin-bottom: -120px;
+  min-width: 215px;
+}
+
+.enemy-pokeInfo {
+  margin-top: 10px;
+  margin-left: -210px;
+  width: 215px;
+}
+
+.poke-level {
+  display: inline-block;
+  margin-left: 60px;
+}
+
+.enemy-poke-level {
+  display: inline-block;
+  margin-left: 90px;
+}
+
+#attackImageDiv {
+  width: 100px;
+  height: 150px;
+}
+
+#myAttackImage {
+  height: 180px;
+  width: 180px;
+  display: none;
+  position: fixed;
+  top: 50px;
+  right: 20px;
+  z-index: 1000;
+  animation: attack 1s infinite;
+}
+
+#enemyAttackImage {
+  height: 180px;
+  width: 180px;
+  display: none;
+  position: fixed;
+  left: 10px;
+  bottom: 200px;
+  animation: attack 1s infinite;
+  z-index: 1000;
+}
+
+#paragraph {
+  letter-spacing: .15em;
+}
+
+.typingEffect {
+  overflow: hidden;
+  border-right: 0.5em solid orange;
+  white-space: nowrap;
+
+  letter-spacing: .15em;
+  animation:
+    typing 3.5s 1,
+    blink-caret .75s step-end infinite;
+}
+
+
+@keyframes typing {
+  from {
+    width: 0
+  }
+
+  to {
+    width: 100%
+  }
+}
+
+
+@keyframes blink-caret {
+
+  from,
+  to {
+    border-color: transparent
+  }
+
+  50% {
+    border-color: orange;
+  }
+}
+
+@keyframes attack {
+  from {
+    opacity: 0.9
+  }
+
+  to {
+    opacity: 0.0
+  }
+}
+
+#form-container {
+  height: 100vh;
+  width: 100vw;
+  background: #eee;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#form {
+  height: 80vh;
+  width: 30vw;
+  background: #fff;
+  padding: 20px;
+  text-align: center;
+  min-width: 300px;
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  justify-content: center;
+}
+
+#form button {
+  width: 90%;
+  padding: 10px;
+  border-radius: 10px;
+  margin-top: 10px;
+  outline: none;
+}
+
+.play-info-container {
+  padding: 20px;
+  /* border:2px solid #eee;*/
+  display: none;
+  text-align: left;
+}
+
+.play-info-container h3 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.back-button {
+  width: 90%;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+#about-container {
+  display: none;
+  padding: 20px;
+  /* border:2px solid #eee;*/
+  display: none;
+  text-align: left;
+}
+
+#win-container {
+  background-image: url("https://i.pinimg.com/originals/7f/3a/68/7f3a68fe9ae08dfcfb26a0863a20d375.gif");
+  height: 100vh;
+  width: 100%;
+  text-align: center;
+  background-size: 100% 100vh;
+  display: none;
+}
+
+.trophy-img {
+  height: 85vh;
+}
+
+@media screen and (max-width:500px) {
+  #myPokemon {
+    position: fixed;
+    bottom: 150px;
+    left: 10px;
+  }
+
+  #pokeInfo {
+    transform: scale(0.8);
+  }
+
+  #enemyPokeImg {
+    height: 150px;
+    width: 150px;
+    background-image: url("https://cdn.discordapp.com/attachments/863680490635657229/909328417705574420/images-removebg-preview.png");
+    background-size: 150px 150px;
+    z-index: 100;
+    margin-top: -70px;
+    position: relative;
+  }
+
+  .my-pokeInfo {
+    margin-left: 120px;
+    margin-bottom: -120px;
+    min-width: 215px;
+  }
+}
+
+/* 
+
+     ============================================================
+      
+          _____________   ^^^^^^^^^^    ____________________
+
+[   By ~Aryan Maurya Mr.perfect https://amsrportfolio.netlify.app  ]
+
+          _____________   ^^^^^^^^^^    ____________________
+
+     ============================================================
+
+*/

@@ -1,0 +1,500 @@
+<!-- Created by Aryan maurya mr perfect singer /rapper
+-->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=7" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+  <meta name="author" content="Aryan Maurya" />
+  <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" />
+  <link rel="apple-touch-icon" href="favicon.png" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <meta
+    name="description"
+    content="This is online pokemon game build for your imporove thing skill in this domain by aryan maurya enjoy your game"
+  />
+  <meta
+    name="keywords"
+    content="online pokemon game,pokemon gmaes,pokemon battle ,battle of pokemon games,games,online,games,battle,battle pokeon ,pokemon,pokemon of pekachu ,cards ,pokemon battle,battle of pokemon game,game of battle,pokemon ,pokm,pokmnon battle,battttl pokemion,pnlione best games,games battle pookemn ,battle game ,battle bost game ,aryan sir games,online best games"
+  />
+  <title>Pokemon Game</title>
+  
+ <!-- 
+
+      ************************************************************
+
+           ++++++++++++++    --------    +++++++++++++++++
+
+{   By ~Aryan Maurya Mr.perfect https://amsrportfolio.netlify.app  }
+
+           ++++++++++++++    --------    +++++++++++++++++
+
+      ************************************************************
+ -->
+  <link rel="stylesheet" href="style.css">
+   <script src="https://code.jquery.com/jquery-3.1.1.js"></script>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+  <div id="loader">
+    <img width="200px" src="https://flyclipart.com/thumb2/scratch-studio-179025.png" class="loader-pikachu">
+    <img src="https://pngimg.com/uploads/pokeball/pokeball_PNG21.png" class="loader-ball">
+  </div>
+  <div id="form-container">
+    <div id="form">
+      <div id="form-btn-container">
+        
+      <img width="300px" src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/International_Pok%C3%A9mon_logo.svg/1200px-International_Pok%C3%A9mon_logo.svg.png">
+      <h2>Menu</h2>
+      <button onclick="play()" id="play-btn">Play</button>
+      <button onclick="info()" id="info-btn">How to play?</button>
+      <button onclick="about()" id="about-btn">About</button>
+      <button><a href="./pokemon/index.html" style="text-decoration:none;">All Pokemon's</a></button>
+    </div>
+    
+    <div class="play-info-container" id="play-info-container">
+      <h3 align="center"><!--<i class="material-icons">new_releases</i>-->How To Play ?</h3>
+      <br>
+      <p>
+        There are three legendry pokemons in your team and in your opponent team. there are four types of attacks which are different for different type of pokemons as per their type. you can choose one attack at time and you opponent team's pokemon will attack then. there is no any type of type advantage in this game. if you will win then you will be honoured by a trophy.want to know about all pokemons power or info <a href="./pokemon/index.html">click here</a>
+      </p>
+      <br>
+      <button onclick="Close()" class="back-button">back</button>
+    </div>  
+    <div  id="about-container">
+      <h3 align="center">About the Game</h3>
+      <br>
+      <p>
+       This Game is created by Aryan Maurya Mr perfect Singer/Rapper.  the game is made with the help of HTML,CSS,JS and jQuery. The aryan is singer and rapper but how he 's programmer. hope you all will like my game want to know about all pokemons <a href="./pokemon/index.html">click here</a>
+      </p>
+      <br>
+      <button onclick="Close()" class="back-button">back</button>
+    </div>
+  </div>
+  </div>
+  <div id="win-container">
+    <img src="https://i.pinimg.com/originals/aa/f1/b0/aaf1b0693cc95fab78f29b399b27e15e.png" class="trophy-img">
+  </div>
+  <div id="myGame">
+    <div id="enemyPokemon">
+      <div id="pokeInfo" class="enemy-pokeInfo">
+      <span id="enemyPokeName">Palkia</span> <span style="margin-left:30px;" class="enemy-poke-level">lvl 20</span>
+      <br/>
+      <span>HP :</span>
+      <meter id="enemyPokeLife" low="80" high="404" max="384" value="50"></meter>
+      <span id="enemyPokeLifeNum">304/304</span>
+      </div>
+      <div id="enemyPokeImg"></div>
+      <div id="enemy-ground"></div>
+
+    </div>
+    <div id="attackImageDiv">
+      <img src="" id="myAttackImage">
+      <img src="" id="enemyAttackImage">
+    </div>
+    <div id="myPokemon">
+      <div id="pokeInfo" class="my-pokeInfo">  
+      <span id="myPokeName">Girentina</span> <p  class="poke-level">lvl 20</p>
+      <br/>
+      <span>HP :</span>
+       <meter id="myPokeLife" low="80" high="404" max="400" value="50"></meter>
+      <span id="myPokeLifeNum">504/504</span>
+</div>
+      
+      <div id="myPokeImg"></div>
+      <div id="my-ground"></div>
+  </div>
+  <div id="controls">
+   <p id="paragraph" class="typingEffect">what is your next move ?</p>
+    <div id="buttons">
+    <button class="buttons" id="btn1">attack 1</button>
+    <button class="buttons" id="btn2">attack 2</button>
+    <button class="buttons" id="btn3">attack 3</button>
+    <button class="buttons" id="btn4">attack 4</button>
+    </div>
+  </div>
+  <script>
+function load(){
+  $("#loader").hide()
+  $("#form-container").show()
+}
+function play(){
+  $("#form-container").hide()
+  $("#myGame").show()
+}
+function info(){
+  $("#play-info-container").show()
+  $("#form-btn-container").hide()
+}
+function about(){
+  $("#form-btn-container").hide()
+  $("#about-container").show()
+}
+function Close(){
+  $("#about-container").hide()
+  $("#play-info-container").hide()
+  $("#form-btn-container").show()
+}
+setTimeout(load,3500)
+var paragraph = document.getElementById("paragraph")
+var atk1 = document.getElementById("btn1")
+var atk2 = document.getElementById("btn2")
+var atk3 = document.getElementById("btn3")
+var atk4 = document.getElementById("btn4")
+var myLifeBar = document.getElementById("myPokeLife")
+var enemyPokeBar = document.getElementById("enemyPokeLife")
+class Pokemon{
+  constructor(name,type,hp,img,attack){
+    this.name= name 
+    this.type = type
+    this.hp = hp
+    this.img = img
+    this.attack = attack
+  }
+}
+class Attacks{
+  constructor(name,type,damage,img){
+    this.name = name 
+    this.type = type 
+    this.damage = damage
+    this.img = img
+  }
+}
+//attack
+dragonBreath = new Attacks("dragon breath","dragon",60,"https://cdn.discordapp.com/attachments/863680490635657229/913459462428295208/Untitled36_20211125152644.png")
+shadowClaw = new Attacks("shadow claw","ghost",70,"https://cdn.discordapp.com/attachments/863680490635657229/926119627774390282/Untitled64_20211230195517.png")
+shadowForce = new Attacks("shadow ball","ghost",120,"https://cdn.discordapp.com/attachments/921770060379467797/923945098830569542/Untitled51_20211224124103.png")
+dragonClaw = new Attacks("dragon claw","dragon",80,"https://cdn.discordapp.com/attachments/863680490635657229/926119683080454184/Untitled63_20211230195426.png")
+waterPulse = new Attacks("water pulse","water",60,"https://cdn.discordapp.com/attachments/863680490635657229/923833233769103380/Untitled50_20211223171033.png")
+hydroPump = new Attacks("hydro pump","water",110,"https://cdn.discordapp.com/attachments/921770060379467797/923945156867145778/Untitled53_20211224132744.png")
+metalClaw = new Attacks("metal claw","steel",50,"https://cdn.discordapp.com/attachments/921770060379467797/923950343719636992/Untitled54_20211224201302.png")
+flashCannon = new Attacks("flash cannon","steel",80,"https://cdn.discordapp.com/attachments/921770060379467797/923950343719636992/Untitled54_20211224201302.png")
+thunderShock = new Attacks("thunder shock","electric",50,"https://cdn.discordapp.com/attachments/921770060379467797/924219035275624488/Untitled55_20211224230054.png")
+peck = new Attacks("peck","flying",35,"https://cdn.discordapp.com/attachments/921770060379467797/924222955553189898/Untitled57_20211225141811.png")
+drillPeck= new Attacks("drill peck","flying",80,"https://cdn.discordapp.com/attachments/921770060379467797/924223015376547850/Untitled56_20211225141725.png")
+dragonPulse = new Attacks("dragon pulse","dragon",85,"https://cdn.discordapp.com/attachments/863680490635657229/923833324441600030/Untitled49_20211223170752.png")
+airslash = new Attacks("air slash","flying",75,"https://cdn.discordapp.com/attachments/863680490635657229/925694365005910077/Untitled62_20211229154016.png")
+moonblast = new Attacks("moonblast","fairy",95,"https://cdn.discordapp.com/attachments/921770060379467797/924351594156412958/Untitled58_20211225143600.png")
+megahorn = new Attacks("megahorn","fairy",120,"https://cdn.discordapp.com/attachments/921770060379467797/924222955553189898/Untitled57_20211225141811.png")
+gigaimpack= new Attacks("Giga Impact","normal",125,"https://cdn.discordapp.com/attachments/921770060379467797/924351595519553536/Untitled60_20211225222330.png")
+//pokemon
+giratina = new Pokemon("Giratina",["dragon","ghost"],410,"https://cdn.discordapp.com/attachments/863680490635657229/911237803218722816/Untitled28_20211119180842-removebg-preview.png",[dragonBreath,shadowClaw,shadowForce,dragonClaw])
+palkia = new Pokemon("Palkia",["dragon","water"],384,"https://cdn.discordapp.com/attachments/863680490635657229/909328417705574420/images-removebg-preview.png",[dragonClaw,dragonBreath,waterPulse,hydroPump])
+
+dialga = new Pokemon("Dialga",["dragon","steel"],404,"https://www.giantbomb.com/a/uploads/original/13/135472/1898339-483dialga.png",[flashCannon,dragonBreath,dragonClaw,metalClaw])
+zapdos = new Pokemon("Zapdos",["flying","electric"],384,"https://cdn.discordapp.com/attachments/863680490635657229/911929329481555968/Untitled30_20211121155838.png",[flashCannon,thunderShock,peck,drillPeck])
+rayquaza = new Pokemon("Rayquaza",["flying","dragon"],414,"https://images.gameinfo.io/pokemon/256/p384.png",[airslash,dragonPulse,peck,dragonBreath])
+xerneas = new Pokemon("Xerneas","fairy",456,"https://cdn.discordapp.com/attachments/863680490635657229/911928680664670258/Untitled31_20211121160506.png",[megahorn,moonblast,dragonPulse,gigaimpack])
+var myPokemons = [giratina,zapdos,dialga]
+var myCurrentPokemon = myPokemons[0]
+var enemyPokemons = [palkia,rayquaza,xerneas]
+var enemyCurrentPokemon = enemyPokemons[0]
+var attack1= myCurrentPokemon.attack[0]
+  var attack2= myCurrentPokemon.attack[1]
+  var attack3 = myCurrentPokemon.attack[2]
+  var attack4 = myCurrentPokemon.attack[3]
+  var myMove;
+  var enemyMove;
+  var myDamage = 0
+function changeMyPokemon(){
+  if(myPokemons[0].hp <= 0){
+    myCurrentPokemon = myPokemons[1]
+  }
+   if(myPokemons[1].hp <= 0){
+    myCurrentPokemon = myPokemons[2]
+  }
+  if(myPokemons[2].hp<= 0){
+    lose()
+  }
+  document.getElementById("myPokeName").innerHTML= `${myCurrentPokemon.name}`
+ document.getElementById("myPokeLifeNum").innerHTML= `${myCurrentPokemon.hp}`
+ document.getElementById("myPokeImg").style.backgroundImage=`url(${myCurrentPokemon.img}
+ )`
+ 
+}
+function changeEnemyPokemon(){
+  if(enemyPokemons[0].hp <= 0){
+    enemyCurrentPokemon = enemyPokemons[1]
+  }
+   if(enemyPokemons[1].hp <= 0){
+    enemyCurrentPokemon = enemyPokemons[2]
+  }
+   if(enemyPokemons[2].hp <= 0){
+    win()
+   
+  }
+ document.getElementById("enemyPokeName").innerHTML= `${enemyCurrentPokemon.name}`
+ document.getElementById("enemyPokeLifeNum").innerHTML= `${enemyCurrentPokemon.hp}`
+ document.getElementById("enemyPokeImg").style.backgroundImage=`url(${enemyCurrentPokemon.img})`
+}
+function myPokemonAttacks(){
+  
+  atk1.innerHTML = ` ${myCurrentPokemon.attack[0].name}`
+  atk2.innerHTML = ` ${myCurrentPokemon.attack[1].name}`
+  atk3.innerHTML = ` ${myCurrentPokemon.attack[2].name}`
+  atk4.innerHTML = ` ${myCurrentPokemon.attack[3].name}`
+  myLifeBar.value = myCurrentPokemon.hp
+  enemyPokeBar.value = enemyCurrentPokemon.hp
+}
+function win(){
+  $("#myGame").hide()
+  $("#win-container").show()
+}
+ function lose(){
+  
+  if(enemyPokemons[2].hp <= 0){
+    Winmsg();
+    //alert("congractulations you have won the trophy ")
+  
+  }else{
+    //alert("you lost try running the game again")
+    Losemsg();
+  $("#myGame").hide()
+  }
+}
+
+function Winmsg(){
+Swal.fire({
+  icon: "success",
+  title: "congractulations you have won the trophy",
+  showClass: {
+    popup: `
+      animate__animated
+      animate__fadeInUp
+      animate__faster
+    `
+  },
+  hideClass: {
+    popup: `
+      animate__animated
+      animate__fadeOutDown
+      animate__faster
+    `
+  }
+});
+}
+function Losemsg(){
+  Swal.fire({
+  icon: "error",
+  title: "you lost try running the game again-restart",
+  showClass: {
+    popup: `
+      animate__animated
+      animate__fadeInUp
+      animate__faster
+    `
+  },
+  hideClass: {
+    popup: `
+      animate__animated
+      animate__fadeOutDown
+      animate__faster
+    `
+  }
+});
+}
+///// comment
+function damageRangeFunc(){
+  if(myDamage <60 || enemyDamage <60){
+    damageRange = "not much effective"
+  }
+  if( (myDamage>=60)(myDamage<=120)  || (enemyDamage > 60)(enemyDamage <= 120) ){
+    damageRange ="much effective"
+  }
+}
+////
+function paragraphFunc(){
+paragraph.style.display="block"
+document.getElementById("buttons").style.display="none"
+function removeTyping(){
+$("#paragraph").removeClass("typingEffect")
+}
+setTimeout(removeTyping,800)
+function removePara(){
+  paragraph.innerHTML=`what is ${myCurrentPokemon.name} next attack ?`
+$("#buttons").show()
+$("#paragraph").addClass("typingEffect")
+function removeTyping(){
+$("#paragraph").removeClass("typingEffect")
+}
+setTimeout(removeTyping,800)
+}
+setTimeout(removePara,2000)
+}
+function attackImageFunc(){
+  //chage or comment
+  if((myMove.type="dragon") && (enemyCurrentPokemon.type="dragon")){
+    myMove.attack = myMove.attack*5
+  }///
+}
+function attackss(){
+  atk1.addEventListener("click",att1)
+  atk2.addEventListener("click",att2)
+  atk3.addEventListener("click",att3)
+  atk4.addEventListener("click",att4)
+  // attack 1
+  function att1(){
+    var enemyRandomAttack = Math.floor(Math.random()*4)
+    myMove = myCurrentPokemon.attack[0]
+    myDamage = myMove.damage
+   enemyCurrentPokemon.hp-= myDamage
+ 
+   paragraph.innerHTML = `you used ${myMove.name} and its effective `
+   
+   document.getElementById("myAttackImage").src = myMove.img
+   document.getElementById("myAttackImage").style.display="block"
+   document.getElementById("enemyAttackImage").style.display="none"
+   
+   // call functions 
+   changeEnemyPokemon()
+   myPokemonAttacks()
+   paragraphFunc()
+   attackImageFunc()
+   function enemyAttack(){
+     enemyMove = enemyCurrentPokemon.attack[enemyRandomAttack]
+     enemyDamage = enemyMove.damage
+     myCurrentPokemon.hp -= enemyDamage
+     
+    paragraph.innerHTML=`${enemyCurrentPokemon.name} used ${enemyMove.name}`
+    
+    document.getElementById("myAttackImage").style.display="none"
+    document.getElementById("enemyAttackImage").src = enemyMove.img
+    document.getElementById("enemyAttackImage").style.display="block"
+   setTimeout(function(){
+     document.getElementById("enemyAttackImage").style.display="none";
+   },2000)
+   
+     changeMyPokemon()
+     myPokemonAttacks()
+     paragraphFunc()
+     attackImageFunc()
+   }
+   setTimeout(enemyAttack,2000)
+  }
+  function att2(){
+    var enemyRandomAttack = Math.floor(Math.random()*4)
+    myMove = myCurrentPokemon.attack[1]
+    myDamage = myMove.damage
+   enemyCurrentPokemon.hp-= myDamage
+   paragraph.innerHTML = `you used ${myMove.name} and its effective`
+   document.getElementById("myAttackImage").src = myMove.img
+   document.getElementById("myAttackImage").style.display="block"
+   document.getElementById("enemyAttackImage").style.display="none"
+   // call functions 
+   changeEnemyPokemon()
+   myPokemonAttacks()
+   paragraphFunc()
+   attackImageFunc()
+   function enemyAttack(){
+     enemyMove = enemyCurrentPokemon.attack[enemyRandomAttack]
+     enemyDamage = enemyMove.damage
+     myCurrentPokemon.hp -= enemyDamage
+     paragraph.innerHTML=`${enemyCurrentPokemon.name} used ${enemyMove.name}`
+     document.getElementById("myAttackImage").style.display="none"
+    document.getElementById("enemyAttackImage").src = enemyMove.img
+    document.getElementById("enemyAttackImage").style.display="block"
+   setTimeout(function(){
+     document.getElementById("enemyAttackImage").style.display="none";
+   },2000)
+     changeMyPokemon()
+     myPokemonAttacks()
+     paragraphFunc()
+     attackImageFunc()
+   }
+   setTimeout(enemyAttack,2000)
+  }
+  function att3(){
+    var enemyRandomAttack = Math.floor(Math.random()*4)
+    myMove = myCurrentPokemon.attack[2]
+    myDamage = myMove.damage
+   enemyCurrentPokemon.hp-= myDamage
+   paragraph.innerHTML = `you used ${myMove.name} and its effective `
+   document.getElementById("myAttackImage").src = myMove.img
+   document.getElementById("myAttackImage").style.display="block"
+   document.getElementById("enemyAttackImage").style.display="none"
+   // call functions 
+   changeEnemyPokemon()
+   myPokemonAttacks()
+   paragraphFunc()
+   attackImageFunc()
+   function enemyAttack(){
+     enemyMove = enemyCurrentPokemon.attack[enemyRandomAttack]
+     enemyDamage = enemyMove.damage
+     myCurrentPokemon.hp -= enemyDamage
+     paragraph.innerHTML=`${enemyCurrentPokemon.name} used ${enemyMove.name}`
+     document.getElementById("myAttackImage").style.display="none"
+    document.getElementById("enemyAttackImage").src = enemyMove.img
+    document.getElementById("enemyAttackImage").style.display="block"
+   setTimeout(function(){
+     document.getElementById("enemyAttackImage").style.display="none";
+   },2000)
+     changeMyPokemon()
+     myPokemonAttacks()
+     paragraphFunc()
+     attackImageFunc()
+   }
+   setTimeout(enemyAttack,2000)
+  }
+  function att4(){
+    var enemyRandomAttack = Math.floor(Math.random()*4)
+    myMove = myCurrentPokemon.attack[3]
+    myDamage = myMove.damage
+   enemyCurrentPokemon.hp-= myDamage
+   paragraph.innerHTML = `you used ${myMove.name} and its effective `
+   document.getElementById("myAttackImage").src = myMove.img
+   document.getElementById("myAttackImage").style.display="block"
+   document.getElementById("enemyAttackImage").style.display="none"
+   // call functions 
+   changeEnemyPokemon()
+   myPokemonAttacks()
+   paragraphFunc()
+   attackImageFunc()
+   function enemyAttack(){
+     enemyMove = enemyCurrentPokemon.attack[enemyRandomAttack]
+     enemyDamage = enemyMove.damage
+     myCurrentPokemon.hp -= enemyDamage
+     paragraph.innerHTML=`${enemyCurrentPokemon.name} used ${enemyMove.name}`
+     document.getElementById("myAttackImage").style.display="none"
+    document.getElementById("enemyAttackImage").src = enemyMove.img
+    document.getElementById("enemyAttackImage").style.display="block"
+   setTimeout(function(){
+     document.getElementById("enemyAttackImage").style.display="none";
+   },2000)
+     changeMyPokemon()
+     myPokemonAttacks()
+     paragraphFunc()
+     attackImageFunc()
+   }
+   setTimeout(enemyAttack,2000)
+  }
+}
+
+  changeMyPokemon()
+  changeEnemyPokemon()
+  attackss()
+  myPokemonAttacks()
+
+  </script>
+</body>
+</html>
+<!-- 
+
+      ************************************************************
+
+           ++++++++++++++    --------    +++++++++++++++++
+
+{   By ~Aryan Maurya Mr.perfect https://amsrportfolio.netlify.app  }
+
+           ++++++++++++++    --------    +++++++++++++++++
+
+      ************************************************************
+ -->

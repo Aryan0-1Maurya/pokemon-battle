@@ -1,0 +1,166 @@
+
+
+<!--
+
+    CREATD BY: Aryan maurya
+    website:https:amsrportfolio.netlify.app
+    
+-->
+    
+    
+    <!DOCTYPE html>
+    <html>
+        <head>
+            <title>Pokemon Card</title>
+            <link rel="stylesheet" href="index.css">
+            <meta name="viewport" content="width=device-width, initial-scale=1" />
+            <meta charset="UTF-8" />
+            <meta http-equiv="X-UA-Compatible" content="IE=7" />
+            <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+            <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
+            <meta name="author" content="Aryan Maurya" />
+            <link rel="shortcut icon" href="../favicon.ico" type="image/x-icon" />
+            <link rel="apple-touch-icon" href="../favicon.png" />
+        </head>
+        <body>
+        
+        <div class="preloader">
+            <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/70643e0f-c6fc-4b32-8403-8978afd31dc8/d3gallt-a5c09c4f-298c-4f56-855d-bc084f1ce783.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwic3ViIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsImF1ZCI6WyJ1cm46c2VydmljZTpmaWxlLmRvd25sb2FkIl0sIm9iaiI6W1t7InBhdGgiOiIvZi83MDY0M2UwZi1jNmZjLTRiMzItODQwMy04OTc4YWZkMzFkYzgvZDNnYWxsdC1hNWMwOWM0Zi0yOThjLTRmNTYtODU1ZC1iYzA4NGYxY2U3ODMuZ2lmIn1dXX0.QYjQ0yLZ2XDOko54nZvkcQtcLe-69xcq__dNEoVzzoI" width="250" height="250">
+            
+            <div id="animator">
+                <div class="circl"></div>
+                <div class="circl"></div>
+                <div class="circl"></div>
+                <div class="circl"></div>
+                <div class="circl"></div>
+                
+                <div class="creater">
+                 <p>CREATED BY Aryan Maurya</p>
+            </div>
+            </div>
+        
+        </div>
+        
+            
+            <div class="container">
+            
+                <div class="content">
+                    
+                </div>
+                
+                <div class="loader">
+                    <div class="spiner"></div>
+                </div>
+                
+            </div>
+            
+            <div class="topbtn topbtnhide">
+                    <p>↑</p>
+                </div>
+            
+            
+            <script>
+            
+            const preloader = document.querySelector('.preloader');
+            
+            document.body.style.overflow = 'hidden';
+    
+    window.onload = setTimeout(() => {
+        document.body.style.overflow = 'auto';
+        preloader.classList.add('active-preloader');
+    }, 5000);
+    
+            
+            const content = document.querySelector('.content');
+    
+    let page = 0;
+    
+    let i = 0;
+    
+    const getdata = async (page) => {
+        const url = 'https://pokeapi.co/api/v2/pokemon/?limit=20&offset='
+        
+        const response = await fetch(url + page);
+        const data = await response.json();
+        return data;
+        
+    }
+    
+    const fetchdata = async (page) => {
+        i = 1;
+        
+        const data = await getdata(page, i);
+        
+        
+        for(let i in data.results) {
+            const res = await fetch(data.results[i].url);
+            const post = await res.json();
+            
+        const ability1 = (post.abilities[1]) ? post.abilities[1].ability.name : ''
+            
+            content.innerHTML += `
+            <div class="card">
+            <p>#${post.id}</p>
+            <img src="${post.sprites.other.dream_world.front_default}" alt="${post.name}">
+            <h2>${post.name}</h2>
+            <div class="info">
+                <p>Height: ${post.height} &nbsp; Weight: ${post.weight}</p>
+                <p>Ability: ${post.abilities[0].ability.name} ${ability1}</p>
+            </div>
+            </div>
+            `
+        }
+    }
+    
+    fetchdata();
+    
+    const nextpage = () => {
+        const loader = document.querySelector('.loader');
+        
+        const {innerHeight, scrollY} = window;
+        const {scrollHeight} = document.body;
+        
+        
+        if(innerHeight + scrollY >= scrollHeight) {
+            loader.classList.add('active');
+            
+            
+            setTimeout(() => {
+                loader.classList.remove('active');
+                
+                page += 20;
+                
+                fetchdata(page)
+                
+            },1000);
+        }
+        
+    }
+    
+    window.addEventListener('scroll', nextpage)
+    
+    const topbtn = document.querySelector('.topbtn');
+    
+    const topBtn = () => {
+    if(window.pageYOffset < 200 ) {
+        topbtn.classList.add('topbtnhide')
+    } else {
+        topbtn.classList.remove('topbtnhide')
+    }
+    }
+    
+    window.addEventListener('scroll', topBtn) 
+    
+    
+    topbtn.onclick = () => {
+        window.scrollTo({
+            top: 0
+        });
+    }
+    
+    
+                
+            </script>
+            
+        </body>
+    </html>
